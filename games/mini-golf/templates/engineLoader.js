@@ -1,7 +1,7 @@
 // LittleJS Arcade — engine build loader.
 //
 // Single source of truth for which LittleJS build every game loads. Each game and
-// template includes THIS instead of a direct <script src="../dist/littlejs*.js">.
+// template includes THIS instead of a direct <script src="dist/littlejs*.js">.
 // It synchronously document.writes the real engine tag — a parser-blocking script
 // inserted right after this one, so the engine is fully defined before the template
 // helpers and inline game code that follow (identical load order to a direct tag).
@@ -17,7 +17,7 @@
 // document.write is the right tool here: called inline during the initial parse it
 // is the supported, order-preserving way to inject a parser-blocking script. The
 // "intervention" that blocks document.written scripts only applies to CROSS-origin
-// scripts on slow links; the engine is same-origin (../dist/…), so it's exempt.
+// scripts on slow links; the engine is same-origin (dist/…), so it's exempt.
 'use strict';
 {
     const BUILD = 'release';            // shipped default: 'debug' | 'release' | 'min'
@@ -63,7 +63,7 @@
                 : (hashFlag && FILES[hashFlag]) ? hashFlag
                 : (stored && FILES[stored]) ? stored
                 : BUILD;
-    document.write('<script src="../dist/' + FILES[build] + '?' + VER + '"><\/script>');
+    document.write('<script src="dist/' + FILES[build] + '?' + VER + '"><\/script>');
 
     // Typing #debug (or #release / #min) onto the URL of a page that is already open
     // only changes the hash, the page does not load again. Reload when the flag asks
