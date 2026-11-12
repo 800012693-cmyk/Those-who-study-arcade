@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Draw the Hill</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+        <meta name="generator" content="Construct 3" />
+        <link rel="apple-touch-icon" sizes="512x512" href="icons/icon-512.png" />
+        <link rel="icon" type="image/png" href="icons/icon-512.png" />
+        <link rel="stylesheet" href="style.css" />
+        <script>
+(function(){
+  function add(){
+    if(document.getElementById('fsBtn')) return;
+    var b=document.createElement('button');
+    b.id='fsBtn'; b.type='button'; b.textContent='\u26F6 Fullscreen';
+    b.style.cssText='position:fixed;right:10px;bottom:10px;z-index:2147483647;opacity:.42;background:rgba(0,0,0,.66);color:#fff;border:1px solid rgba(255,255,255,.45);border-radius:6px;padding:6px 10px;font:12px system-ui,sans-serif;cursor:pointer;line-height:1.2';
+    b.onmouseenter=function(){b.style.opacity=1};
+    b.onmouseleave=function(){b.style.opacity=.42};
+    b.onclick=function(){
+      if(document.fullscreenElement){document.exitFullscreen()}
+      else if(document.documentElement.requestFullscreen){document.documentElement.requestFullscreen()}
+    };
+    document.body.appendChild(b);
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',add)}else{add()}
+})();
+</script>
+</head>
+    <body>
+        <noscript>
+            <div id="notSupportedWrap">
+                <h2 id="notSupportedTitle">This content requires JavaScript</h2>
+                <p class="notSupportedMessage">JavaScript appears to be disabled. Please enable it to view this content.</p>
+            </div>
+        </noscript>
+        <script type="3a3ae4e0c6bcb190169ba9ff-text/javascript">
+            document.addEventListener('touchmove', function(e) {
+            e.preventDefault();
+            }, { passive: false });
+
+            document.addEventListener("contextmenu", function (e) {
+            	e.preventDefault();
+            }, false);
+
+            window.addEventListener("keydown", function(e)
+            {
+            	if(["Space", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].indexOf(e.code) > -1)
+            	{
+            		e.preventDefault();
+            	}
+            }, false);
+        </script>
+        <script src="scripts/supportcheck.js" type="3a3ae4e0c6bcb190169ba9ff-text/javascript"></script>
+        <script src="scripts/main.js" type="3a3ae4e0c6bcb190169ba9ff-module"></script>
+        <script src="scripts/rocket-loader.min.js" data-cf-settings="3a3ae4e0c6bcb190169ba9ff-|49" defer=""></script>
+    </body>
+</html>

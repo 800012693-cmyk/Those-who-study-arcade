@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Rolly Vortex</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link rel="apple-touch-icon" sizes="256x256" href="icon-256.png" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <link rel="shortcut icon" sizes="256x256" href="icon-256.png" />
+    <link rel="icon" type="image/x-icon" href="icon-32.png" />
+    <style type="text/css">
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      html,
+      body {
+        background: #000;
+        color: #fff;
+        overflow: hidden;
+        touch-action: none;
+        -ms-touch-action: none;
+      }
+      canvas {
+        touch-action-delay: none;
+        touch-action: none;
+        -ms-touch-action: none;
+      }
+    </style>
+  <script>
+(function(){
+  function add(){
+    if(document.getElementById('fsBtn')) return;
+    var b=document.createElement('button');
+    b.id='fsBtn'; b.type='button'; b.textContent='\u26F6 Fullscreen';
+    b.style.cssText='position:fixed;right:10px;bottom:10px;z-index:2147483647;opacity:.42;background:rgba(0,0,0,.66);color:#fff;border:1px solid rgba(255,255,255,.45);border-radius:6px;padding:6px 10px;font:12px system-ui,sans-serif;cursor:pointer;line-height:1.2';
+    b.onmouseenter=function(){b.style.opacity=1};
+    b.onmouseleave=function(){b.style.opacity=.42};
+    b.onclick=function(){
+      if(document.fullscreenElement){document.exitFullscreen()}
+      else if(document.documentElement.requestFullscreen){document.documentElement.requestFullscreen()}
+    };
+    document.body.appendChild(b);
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',add)}else{add()}
+})();
+</script>
+</head>
+
+  <body>
+    <script>
+      // Issue a warning if trying to preview an exported project on disk.
+      (function () {
+        // Check for running exported on file protocol
+        if (window.location.protocol.substr(0, 4) === "file") {
+          alert("Exported games won't work until you upload them. (When running on the file:/// protocol, browsers block many features from working for security reasons.)");
+        }
+      })();
+    </script>
+    <div id="c2canvasdiv">
+      <canvas id="c2canvas" width="720" height="1280">
+        <h1>Your browser does not appear to support HTML5. Try upgrading your browser to the latest version. <a href="http://www.whatbrowser.org">What is a browser?</a><br><hr><br><a href="http://www.mozilla.com/firefox/">Mozilla Firefox</a><br /><a href="http://www.google.com/chrome/">Google Chrome</a><br /><a href="http://www.apple.com/safari/download/">Apple Safari</a>
+        </h1>
+      </canvas>
+    </div>
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/c2runtime.js"></script>
+    </body>
+</html>

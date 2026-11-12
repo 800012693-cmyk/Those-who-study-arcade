@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Rolling Forests</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script>
+(function(){
+  function add(){
+    if(document.getElementById('fsBtn')) return;
+    var b=document.createElement('button');
+    b.id='fsBtn'; b.type='button'; b.textContent='\u26F6 Fullscreen';
+    b.style.cssText='position:fixed;right:10px;bottom:10px;z-index:2147483647;opacity:.42;background:rgba(0,0,0,.66);color:#fff;border:1px solid rgba(255,255,255,.45);border-radius:6px;padding:6px 10px;font:12px system-ui,sans-serif;cursor:pointer;line-height:1.2';
+    b.onmouseenter=function(){b.style.opacity=1};
+    b.onmouseleave=function(){b.style.opacity=.42};
+    b.onclick=function(){
+      if(document.fullscreenElement){document.exitFullscreen()}
+      else if(document.documentElement.requestFullscreen){document.documentElement.requestFullscreen()}
+    };
+    document.body.appendChild(b);
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',add)}else{add()}
+})();
+</script>
+</head>
+  <body id="body">
+    <div id="game"></div>
+    <div id="pausemenu"></div>
+    <script src="three.min.js"></script>
+    <script src="script.js"></script>
+    </body>
+</html>
+ 
